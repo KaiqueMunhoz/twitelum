@@ -11,6 +11,7 @@ class Home extends Component {
   constructor(){
     super();
     this.state = {
+      hasAtLeastOneTweet: false,
       tweet : '',
       tweets : []
     }
@@ -19,12 +20,14 @@ class Home extends Component {
   
   addTweet(event) {
     event.preventDefault();
+
     const tweet = this.state.tweet;
     const tweets = this.state.tweets;
     if(tweet){
       this.setState({
         tweets : [tweet, ...tweets],
-        tweet : ''
+        tweet : '',
+        hasAtLeastOneTweet: true
       });
     }
   }
@@ -58,16 +61,21 @@ class Home extends Component {
                 </Widget>
             </Dashboard>
             <Dashboard position="center">
-                <Widget>
-                    <div className="tweetsArea">
-                    {
-                      this.state.tweets.map((tweet, index) => {
-                        return <Tweet text={tweet} key={tweet + index}/>
-                      })
-                    }
-                        
-                    </div>
-                </Widget>
+                { this.state.hasAtLeastOneTweet ? 
+                  <Widget>
+                      <div className="tweetsArea">
+                      {
+                        this.state.tweets.map((tweet, index) => {
+                          return <Tweet text={tweet} key={tweet + index}/>
+                        })
+                      }
+                      </div>
+                  </Widget> : 
+                  <Widget>
+                    <div className="notificationWithoutTweets">Make your first tweet</div>
+                  </Widget>              
+                }
+                
             </Dashboard>
         </div>
       </Fragment>

@@ -23,6 +23,12 @@
 	text-transform: uppercase;
 }
 
+.notificationWithoutTweets {
+	color: #58CEF2;
+	text-align: center;
+	font-family: monospace;
+}
+
 @keyframes toast {
 	0%, 100% {
 		opacity: 0;
