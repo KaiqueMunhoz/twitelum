@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './navMenu.css';
 
 class NavMenu extends Component {
+
     render() {
         return (
             <nav className="navMenu">

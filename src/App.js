@@ -7,6 +7,28 @@ import TrendsArea from './components/TrendsArea'
 import Tweet from './components/Tweet'
 
 class App extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      tweet : '',
+      tweets : []
+    }
+    this.addTweet = this.addTweet.bind(this);
+  }
+  
+  addTweet(event) {
+    event.preventDefault();
+    const tweet = this.state.tweet;
+    const tweets = this.state.tweets;
+    if(tweet){
+      this.setState({
+        tweets : [tweet, ...tweets],
+        tweet : ''
+      });
+    }
+  }
+
   render() {
     return (
       <Fragment>
@@ -16,12 +38,19 @@ class App extends Component {
         <div className="container">
             <Dashboard>
                 <Widget>
-                    <form className="newTweet">
+                    <form className="newTweet" onSubmit={ this.addTweet } >
                         <div className="newTweet__editorArea">  
-                            <span className="newTweet__status">0/140</span>
-                            <textarea className="newTweet__editor" placeholder="What's happening?"></textarea>
+                            <span className={
+                              `newTweet__status ${this.state.tweet.length < 140 ? '': 'newTweet__status--invalid' }`
+                              }>
+                            {this.state.tweet.length < 140 ? this.state.tweet.length : '140'}/140</span>
+                            <textarea className="newTweet__editor" 
+                            value={ this.state.tweet }
+                            onInput={ (event) => this.setState({ tweet: event.target.value }) }
+                            placeholder="What's happening?"></textarea>
                         </div>
-                        <button type="submit" className="newTweet__send">Tweet</button>
+                        <button disabled={this.state.tweet.length < 140 ? false : true}
+                        type="submit" className="newTweet__send">Tweet</button>
                     </form>
                 </Widget>
                 <Widget>
@@ -31,7 +60,12 @@ class App extends Component {
             <Dashboard position="center">
                 <Widget>
                     <div className="tweetsArea">
-                        <Tweet />
+                    {
+                      this.state.tweets.map((tweet, index) => {
+                        return <Tweet text={tweet} key={tweet + index}/>
+                      })
+                    }
+                        
                     </div>
                 </Widget>
             </Dashboard>
