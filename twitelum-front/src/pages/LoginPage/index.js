@@ -1,20 +1,26 @@
-import React, { Component } from 'react'
-import Widget from '../../components/Widget'
-
-import './loginPage.css'
+import React, { Component } from 'react';
+import Widget from '../../components/Widget';
+import Results from '../../components/Results';
+import './loginPage.css';
 
 
 class LoginPage extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+            showResults : false
+          }
+    }
 
     loggingIntoTwitelum = (event) => {
       
       event.preventDefault();
       
+      const showResults = this.showResults;
       const login = this.login.value;
       const password = this.password.value;
       const user = {login, senha: password};
-      console.log(user);
-      console.log(JSON.stringify(user));
 
       fetch('http://twitelum-api.herokuapp.com/login', {
           method: 'POST',
@@ -29,9 +35,11 @@ class LoginPage extends Component {
         .then( (validUser) => {
           localStorage.setItem('TOKEN', validUser.token);
           console.log(validUser.token);
+          this.setState({showResults : false});
         })
         .catch( (error) => {
           console.error(error);
+          this.setState({showResults : true});
         })
     }
 
@@ -60,9 +68,8 @@ class LoginPage extends Component {
                                   ref={ (inputPassword) => this.password = inputPassword }
                                   name="senha"/>
                             </div>
-                            {/* <div className="loginPage__errorBox">
-                                Mensagem de erro!
-                            </div> */}
+                            {/*User doesn't exist*/}
+                            { this.state.showResults ? <Results text="User doen't exist"/> : null }
                             <div className="loginPage__inputWrap">
                                 <button className="loginPage__btnLogin" type="submit">
                                     Logar
