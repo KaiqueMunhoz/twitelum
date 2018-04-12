@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
-import Header from './components/Header'
-import NavMenu from './components/NavMenu'
-import Dashboard from './components/Dashboard'
-import Widget from './components/Widget'
-import TrendsArea from './components/TrendsArea'
-import Tweet from './components/Tweet'
+import Header from '../../components/Header'
+import NavMenu from '../../components/NavMenu'
+import Dashboard from '../../components/Dashboard'
+import Widget from '../../components/Widget'
+import TrendsArea from '../../components/TrendsArea'
+import Tweet from '../../components/Tweet'
 
-class App extends Component {
+class Home extends Component {
 
   constructor(){
     super();
@@ -75,4 +75,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;
