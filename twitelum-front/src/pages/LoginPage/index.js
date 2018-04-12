@@ -17,7 +17,6 @@ class LoginPage extends Component {
       
       event.preventDefault();
       
-      const showResults = this.showResults;
       const login = this.login.value;
       const password = this.password.value;
       const user = {login, senha: password};
@@ -34,7 +33,6 @@ class LoginPage extends Component {
         })
         .then( (validUser) => {
           localStorage.setItem('TOKEN', validUser.token);
-          console.log(validUser.token);
           this.setState({showResults : false});
         })
         .catch( (error) => {
