@@ -13,7 +13,7 @@ class Home extends Component {
     this.state = {
       hasAtLeastOneTweet: false,
       tweet : '',
-      tweets : []
+      tweets : [],
     }
     this.addTweet = this.addTweet.bind(this);
   }
@@ -22,13 +22,24 @@ class Home extends Component {
     event.preventDefault();
 
     const tweet = this.state.tweet;
-    const tweets = this.state.tweets;
+    const tweets = this.state.tweets; 
+    
     if(tweet){
-      this.setState({
-        tweets : [tweet, ...tweets],
-        tweet : '',
-        hasAtLeastOneTweet: true
-      });
+      fetch(`http://localhost:3001/tweets?X-AUTH-TOKEN=${localStorage.getItem('TOKEN')}`, {
+        method: 'POST',
+        body: JSON.stringify({conteudo: tweet})
+      })
+      .then((response) => {
+        return response.json();
+      })
+      .then((newTweet)=> {
+        console.log(newTweet);
+        this.setState({
+          tweets : [newTweet, ...tweets],
+          tweet : '',
+          hasAtLeastOneTweet: true
+        });
+      })
     }
   }
 
@@ -65,8 +76,9 @@ class Home extends Component {
                   <Widget>
                       <div className="tweetsArea">
                       {
-                        this.state.tweets.map((tweet, index) => {
-                          return <Tweet text={tweet} key={tweet + index}/>
+                        this.state.tweets.map((tweet) => {
+                          return <Tweet 
+                            text={tweet.conteudo} key={tweet._id} tweetInfo={tweet}/>
                         })
                       }
                       </div>
