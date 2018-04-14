@@ -33,6 +33,7 @@ class LoginPage extends Component {
         })
         .then( (validUser) => {
           localStorage.setItem('TOKEN', validUser.token);
+          this.props.history.push('/');
           this.setState({showResults : false});
         })
         .catch( (error) => {
