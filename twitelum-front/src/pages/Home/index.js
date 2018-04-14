@@ -16,6 +16,18 @@ class Home extends Component {
       tweets : [],
     }
     this.addTweet = this.addTweet.bind(this);
+
+  }
+  
+  componentDidMount() {
+    
+    fetch(`http://localhost:3001/tweets?X-AUTH-TOKEN=${localStorage.getItem('TOKEN')}`)
+    .then(response => response.json())
+    .then((tweets) => {
+      this.setState({
+        tweets
+      })
+    })
   }
   
   addTweet(event) {
@@ -72,22 +84,16 @@ class Home extends Component {
                 </Widget>
             </Dashboard>
             <Dashboard position="center">
-                { this.state.hasAtLeastOneTweet ? 
-                  <Widget>
-                      <div className="tweetsArea">
-                      {
-                        this.state.tweets.map((tweet) => {
-                          return <Tweet 
-                            text={tweet.conteudo} key={tweet._id} tweetInfo={tweet}/>
-                        })
-                      }
-                      </div>
-                  </Widget> : 
-                  <Widget>
-                    <div className="notificationWithoutTweets">Make your first tweet</div>
-                  </Widget>              
-                }
-                
+              <Widget>
+                  <div className="tweetsArea">
+                  {
+                    this.state.tweets.map((tweet) => {
+                      return <Tweet 
+                        text={tweet.conteudo} key={tweet._id} tweetInfo={tweet}/>
+                    })
+                  }
+                  </div>
+              </Widget>
             </Dashboard>
         </div>
       </Fragment>
