@@ -7,6 +7,10 @@ import LoginPage from './pages/LoginPage';
 
 const Routes = () =>  {
 
+  function isAuthenticated() { 
+    return localStorage.getItem('TOKEN'); 
+  }
+
   return(
     <Switch>
       <Route path='/' exact component={Home}/>
