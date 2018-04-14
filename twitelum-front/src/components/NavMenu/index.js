@@ -21,7 +21,7 @@ class NavMenu extends Component {
                     <a className="navMenu__link">Hashtags</a>
                 </li>
                 <li className="navMenu__item">
-                    <Link className="navMenu__link" to={"/login"}>Logout</Link>
+                    <Link className="navMenu__link" onClick={() => localStorage.removeItem('TOKEN')} to={"/login"}>Logout</Link>
                 </li>
                 </ul>
             </nav>
