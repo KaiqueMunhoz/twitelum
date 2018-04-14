@@ -12,12 +12,10 @@ function isAuthenticated() {
 class PrivateRoute extends Component {
 
   render(){
-
-
     const Component = this.props.component;
     const props = this.props;
 
-    if(isAuthenticated){
+    if(isAuthenticated()){
       return (
         <Route render={() => <Component {...props} />}/>
       );
@@ -30,8 +28,6 @@ class PrivateRoute extends Component {
 }
 
 const Routes = () =>  {
-
-
 
   return(
     <Switch>
