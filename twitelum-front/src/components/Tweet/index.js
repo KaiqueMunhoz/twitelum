@@ -17,6 +17,9 @@ class Tweet extends Component {
             isLiked: !isLiked,
             totalLikes: isLiked ? totalLikes - 1 : totalLikes + 1
         });
+
+        fetch(`http://localhost:3001/tweets/${this.props.tweetInfo._id}/like?X-AUTH-TOKEN=${localStorage.getItem('TOKEN')}`, {method: 'POST'})
+        .then(response => response.json());
     }
 
     render() {
