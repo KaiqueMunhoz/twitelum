@@ -24,7 +24,7 @@ class Tweet extends Component {
 
     render() {
         return (
-            <article className="tweet">
+            <article className="tweet" onClick={this.props.openModalHandler}>
                 <div className="tweet__header">
                     <img className="tweet__photoUser" src={ this.props.tweetInfo.usuario.foto} alt="" />
                     <span className="tweet__userName">{this.props.tweetInfo.usuario.nome}</span>
