@@ -45,10 +45,19 @@ class Tweet extends Component {
                         </svg>
                         {this.state.totalLikes}
                     </button>
+                    <div className="tweet_likes">
+                        {
+                            this.props.tweetInModal &&
+                            this.props.tweetInfo.likes.map(
+                                liker => `@${liker.usuario.login} `
+                            )
+                        }
+                    </div>
                     {
                         this.props.tweetInfo.removivel &&
                         <button onClick={this.props.removeHandler} className="btn btn--blue btn--remove">X</button>
                     }
+                    
                 </footer>
             </article>
         )

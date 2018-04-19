@@ -142,6 +142,7 @@ class Home extends Component {
         <Modal closeModal={this.closeModal} isOpen={!!this.state.tweetActivated._id}>
           <Widget>
             <Tweet
+              tweetInModal={true}
               removeHandler={() => this.removeTweet(this.state.tweetActivated._id)}
               text={this.state.tweetActivated.conteudo || ''}
               tweetInfo={this.state.tweetActivated} />
