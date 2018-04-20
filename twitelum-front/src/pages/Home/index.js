@@ -33,8 +33,8 @@ class Home extends Component {
   componentWillMount() {
     this.context.store.subscribe(() => {
       this.setState({
-        tweets: this.context.store.getState().list,
-        tweetActivated: this.context.store.getState().tweetActivated
+        tweets: this.context.store.getState().tweets.list,
+        tweetActivated: this.context.store.getState().tweets.tweetActivated
       })
     })
   }
@@ -119,6 +119,13 @@ class Home extends Component {
               tweetInfo={this.state.tweetActivated} />
           </Widget>
         </Modal>
+
+        {
+          this.context.store.getState().notification &&
+          <div className="notificationMessage">
+            {this.context.store.getState().notification}
+          </div>
+        }
 
       </Fragment>
     );

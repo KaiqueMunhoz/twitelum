@@ -63,10 +63,10 @@ function notificationReducer(state = '', action={}) {
 
 const store = createStore(
   combineReducers({
-    tweetsReducer: tweets,
-    notificationReducer: notification,
-    applyMiddleware(thunk)
-  })
+    tweets: tweetsReducer,
+    notification: notificationReducer
+  }),
+  applyMiddleware(thunk)
 );
 
 export default store;

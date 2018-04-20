@@ -34,6 +34,11 @@ export const removeTweet = (idTweet) => {
     .then(response => {
       dispatch({ type: 'REMOVE_TWEET', idTweet });
       dispatch({ type: 'REMOVE_TWEET_ACTIVATED'});
+
+      dispatch({ type: 'ADD_NOTIFICATION', notification: 'Tweet removed with success'})
+      setTimeout(() => {
+        dispatch({ type: 'REMOVE_NOTIFICATION'});
+      }, 5000);
     })
   }
 }
