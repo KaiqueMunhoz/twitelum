@@ -21,7 +21,7 @@ class LoginPage extends Component {
       const password = this.password.value;
       const user = {login, senha: password};
 
-      fetch('http://twitelum-api.herokuapp.com/login', {
+      fetch('http://localhost:3001/login', {
           method: 'POST',
           body: JSON.stringify(user)
         })
