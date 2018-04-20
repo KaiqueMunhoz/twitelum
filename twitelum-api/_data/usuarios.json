@@ -1,34 +1,50 @@
 [
     {
-        "login": "omariosouto",
-        "nome": "Mario",
-        "sobrenome": "Souto",
-        "foto": "https://www.caelum.com.br/imagens/instrutores/fotos/mario-souto-120.jpg",
-        "email": "mario.souto@caelum.com.br",
+        "login": "kaique_munhoz",
+        "nome": "Kaique",
+        "sobrenome": "Munhoz",
+        "foto": "https://pbs.twimg.com/profile_images/974066184730669057/KTPOZiyI_400x400.jpg",
+        "email": "kaique@gmail.com",
         "senha": "123456"
     },
     {
-        "login": "artdiniz",
-        "nome": "Artur",
-        "sobrenome": "Diniz",
-        "foto": "https://www.caelum.com.br/imagens/instrutores/fotos/artur-diniz-120.jpg",
-        "email": "artur.diniz@caelum.com.br",
+        "login": "Joaobujato",
+        "nome": "João",
+        "sobrenome": "Bujato",
+        "foto": "https://pbs.twimg.com/profile_images/972136568315109376/tpFzd6xx_400x400.jpg",
+        "email": "joao@gmail.com",
         "senha": "123456"
     },
     {
-        "login": "marcobrunobr",
-        "nome": "Marco",
-        "sobrenome": "Bruno",
-        "foto": "https://www.caelum.com.br/imagens/instrutores/fotos/marco-bruno-120.jpg",
-        "email": "marco.bruno@caelum.com.br",
+        "login": "dodonoric",
+        "nome": "Douglas",
+        "sobrenome": "Eduardo",
+        "foto": "https://pbs.twimg.com/profile_images/923995360078565376/tBvm7DGU_400x400.jpg",
+        "email": "dodo@gmail.com",
         "senha": "123456"
     },
     {
-        "login": "vanessametonini",
-        "nome": "Vanessa",
-        "sobrenome": "Tonini",
-        "foto": "https://www.caelum.com.br/imagens/instrutores/fotos/vanessa-tonini-120.jpg",
-        "email": "vanessa.tonini@caelum.com.br",
+        "login": "edneilojunior",
+        "nome": "Edneilo",
+        "sobrenome": "Junior",
+        "foto": "https://i.imgur.com/rb5lzld.jpg",
+        "email": "edneilo@gmail.com",
+        "senha": "123456"
+    },
+    {
+        "login": "brenovieira",
+        "nome": "Breno",
+        "sobrenome": "Vieira",
+        "foto": "https://i.imgur.com/4diralm.jpg",
+        "email": "breno@gmail.com",
+        "senha": "123456"
+    },
+    {
+        "login": "diegoalexandre",
+        "nome": "Diego",
+        "sobrenome": "Alexandre",
+        "foto": "https://i.imgur.com/lTYhcNl.jpg",
+        "email": "diego@gmail.com",
         "senha": "123456"
     }
 ]
