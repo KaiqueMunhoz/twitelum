@@ -37,3 +37,9 @@ export const removeTweet = (idTweet) => {
     })
   }
 }
+
+export const like = (idTweet) => {
+  return (dispatch) => {
+    dispatch({ type: 'LIKE', idTweet })
+  }
+}

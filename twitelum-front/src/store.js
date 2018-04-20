@@ -35,6 +35,18 @@ function tweetsReducer(state = {list : [], tweetActivated: {} }, action = {}) {
       tweetActivated: {}
     }
   }
+  if(action.type === 'LIKE') {
+    state.list.map((currentTweet) => {
+
+      if(currentTweet._id === action.idTweet) {
+          const { likeado, totalLikes } = currentTweet;
+          currentTweet.likeado = !likeado;
+          currentTweet.totalLikes = likeado ? totalLikes - 1 : totalLikes + 1;
+      }
+
+      return currentTweet;
+    });
+  }
 
   return state;
 }
