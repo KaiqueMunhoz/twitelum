@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter} from 'react-router-dom';
-import Routes from './routes';
+
 
 // CSS Global
 import './assets/css/reset.css'
@@ -16,10 +15,21 @@ import './assets/css/newTweet.css'
 import registerServiceWorker from './registerServiceWorker';
 
 //Routes
-ReactDOM.render(
-  <BrowserRouter>
-    <Routes />
-  </BrowserRouter>, document.getElementById('root'));
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routes';
 
-//This do something.
+//Redux
+import { Provider } from 'react-redux'
+import store from './store'
+
+//Routes
+ReactDOM.render(
+  <Provider store={store}>
+      <BrowserRouter>
+          <Routes />
+      </BrowserRouter>
+  </Provider>
+  , document.getElementById('root'));
+
+
 registerServiceWorker();

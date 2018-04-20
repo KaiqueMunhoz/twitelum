@@ -6,8 +6,13 @@ import Widget from '../../components/Widget'
 import TrendsArea from '../../components/TrendsArea'
 import Tweet from '../../components/Tweet'
 import Modal from '../../components/Modal'
+import PropTypes from 'prop-types'
 
 class Home extends Component {
+
+  static contextTypes = {
+    store: PropTypes.object.isRequired
+  }
 
   constructor() {
     super();
@@ -26,10 +31,20 @@ class Home extends Component {
     fetch(`http://localhost:3001/tweets?X-AUTH-TOKEN=${localStorage.getItem('TOKEN')}`)
       .then(response => response.json())
       .then((tweets) => {
+
+        this.context.store.dispatch({type: 'CARREGA_TWEETS', tweets});
         this.setState({
           tweets
         })
       })
+  }
+  
+  componentWillMount() {
+    this.context.store.subscribe(() => {
+      this.setState({
+        tweets: this.context.store.getState()
+      })
+    })
   }
 
   addTweet(event) {
