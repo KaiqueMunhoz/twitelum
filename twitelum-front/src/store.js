@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 function tweetsReducer(state = [], action = {}) {
   
-  if(action.type === 'CARREGA_TWEETS') {
+  if(action.type === 'GET_TWEETS') {
     return action.tweets;
   }
   if(action.type === 'ADD_TWEET') {
