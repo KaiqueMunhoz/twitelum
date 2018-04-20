@@ -47,18 +47,7 @@ class Home extends Component {
   }
 
 removeTweet(idTweet) {
-
-  fetch(`http://localhost:3001/tweets/${idTweet}?X-AUTH-TOKEN=${localStorage.getItem('TOKEN')}`, {
-    method: 'DELETE'
-  })
-    .then(response => response.json())
-    .then(response => {
-      const listWithoutTweet = this.state.tweets.filter(tweet => tweet._id !== idTweet);
-      this.setState({
-        tweets: listWithoutTweet,
-        tweetActivated: {}
-      });
-    })
+    this.context.store.dispatch(TweetsAPI.removeTweet(idTweet));
 }
 
 openModal = (event, idTweet) => {
