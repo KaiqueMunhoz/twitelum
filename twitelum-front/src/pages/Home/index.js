@@ -33,7 +33,8 @@ class Home extends Component {
   componentWillMount() {
     this.context.store.subscribe(() => {
       this.setState({
-        tweets: this.context.store.getState()
+        tweets: this.context.store.getState().list,
+        tweetActivated: this.context.store.getState().tweetActivated
       })
     })
   }
@@ -51,19 +52,15 @@ class Home extends Component {
     if (isTweetFooter) {
       return;
     }
-    const tweetSelected = this.state.tweets.find(tweet => tweet._id === idTweet);
-    this.setState({
-      tweetActivated: tweetSelected
-    });
+    const tweetActivated = this.state.tweets.find(tweet => tweet._id === idTweet);
+    this.context.store.dispatch({type: 'ADD_TWEET_ACTIVATED', tweetActivated});
   }
-
+  
   closeModal = (event) => {
-
+    
     const isModal = event.target.closest('.widget');
     if (!isModal) {
-      this.setState({
-        tweetActivated: {}
-      });
+      this.context.store.dispatch({type: 'REMOVE_TWEET_ACTIVATED'});
     }
   }
 

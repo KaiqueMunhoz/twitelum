@@ -32,7 +32,8 @@ export const removeTweet = (idTweet) => {
     })
     .then(response => response.json())
     .then(response => {
-      dispatch({ type: 'REMOVE_TWEET', idTweet })
+      dispatch({ type: 'REMOVE_TWEET', idTweet });
+      dispatch({ type: 'REMOVE_TWEET_ACTIVATED'});
     })
   }
 }
