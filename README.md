@@ -38,6 +38,13 @@ To check if everything finish was expected, run the command
 ```
 reate-react-app --version
 ```
+- Dependencies
+
+To install all others dependencies of this project, run the following command line
+```
+npm install
+```
+
 
 ---------------------
 
