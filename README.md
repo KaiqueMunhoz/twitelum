@@ -44,6 +44,27 @@ reate-react-app --version
 _This Installation process was made in 30/04/2018_
 
 
+### Running
+
+After the installation, this project already can run.
+The follows commands run the server side and the frontend side (That is the focus of this course).
+
+- Server API
+```
+cd twitelum-api
+```
+```
+npm start
+```
+
+- Frontend
+```
+cd twitelum-front
+```
+```
+npm start
+```
+
 ## Built With
 
 * [NodeJs](https://github.com/nodejs)
