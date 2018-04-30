@@ -1,6 +1,6 @@
 # Twitelum
 
-One Paragraph of project description goes here
+Over this course, we will develop an application based on Twitter called Twitelum. The reason for this choice was problems that the interface has, like manager the state and the use of components, that is perfect to use React and technologies that make up your ecosystem.
 
 
 ## Getting Started
