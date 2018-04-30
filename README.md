@@ -3,14 +3,14 @@
 Over this course, we will develop an application based on Twitter called Twitelum. The reason for this choice was problems that the interface has, like manager the state and the use of components, that is perfect to use React and technologies that make up your ecosystem.
 
 
-### Knowledge Prerequisites
+## Knowledge Prerequisites
 
 - HTML
 - CSS
 - Javascript
 
 
-### Installing
+## Installing
 
 - Nodejs
 
@@ -44,7 +44,7 @@ reate-react-app --version
 _This Installation process was made in 30/04/2018_
 
 
-### Running
+## Running
 
 After the installation, this project already can run.
 The follows commands run the server side and the frontend side (That is the focus of this course).
