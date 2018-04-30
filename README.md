@@ -3,11 +3,6 @@
 Over this course, we will develop an application based on Twitter called Twitelum. The reason for this choice was problems that the interface has, like manager the state and the use of components, that is perfect to use React and technologies that make up your ecosystem.
 
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-
 ### Prerequisites
 
 What things you need to install the software and how to install them
